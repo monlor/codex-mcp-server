@@ -118,6 +118,9 @@ Use codex with sessionId "my-session" to make it more efficient
 
 # Reset session context
 Use codex with sessionId "my-session" and resetSession true to start fresh analysis
+
+# Additional CLI arguments
+Use codex with additionalArgs ["--search", "--dangerously-bypass-approvals-and-sandbox"] to enable search and bypass approvals
 ```
 
 **Parameters:**
@@ -126,6 +129,7 @@ Use codex with sessionId "my-session" and resetSession true to start fresh analy
 - `resetSession` (optional): Reset session history before processing
 - `model` (optional): Specify model to use (defaults to 'gpt-5-codex'). Options: 'gpt-5-codex', 'gpt-4', 'gpt-3.5-turbo'
 - `reasoningEffort` (optional): Control reasoning depth ('low', 'medium', 'high')
+- `additionalArgs` (optional): Additional CLI arguments to pass to codex command (e.g., `["--search", "--dangerously-bypass-approvals-and-sandbox"]`)
 
 ### `listSessions` - Session Management
 List all active conversation sessions with metadata including creation time, last access, and turn count.
@@ -168,6 +172,15 @@ Use codex to help debug this error: [error message]
 **Code Generation:**
 ```
 Ask codex to create a React component that handles file uploads
+```
+
+**Using Additional CLI Arguments:**
+```
+# Enable search mode with bypass approvals
+Use codex with additionalArgs ["--search", "--dangerously-bypass-approvals-and-sandbox"] to analyze this codebase
+
+# Combine with other parameters
+Use codex with model "gpt-4" and additionalArgs ["--search"] to refactor this module
 ```
 
 ## Advanced Features (Codex CLI v0.50.0+)
