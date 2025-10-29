@@ -30,6 +30,14 @@ export const toolDefinitions: ToolDefinition[] = [
           enum: ['low', 'medium', 'high'],
           description: 'Control reasoning depth (low=fast, high=thorough)',
         },
+        additionalArgs: {
+          type: 'array',
+          items: {
+            type: 'string',
+          },
+          description:
+            'Additional CLI arguments to pass to codex command (e.g., ["--search", "--dangerously-bypass-approvals-and-sandbox"])',
+        },
       },
       required: ['prompt'],
     },

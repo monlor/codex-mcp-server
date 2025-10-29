@@ -22,8 +22,13 @@ export class CodexToolHandler {
 
   async execute(args: unknown): Promise<ToolResult> {
     try {
-      const { prompt, sessionId, resetSession, model }: CodexToolArgs =
-        CodexToolSchema.parse(args);
+      const {
+        prompt,
+        sessionId,
+        resetSession,
+        model,
+        additionalArgs,
+      }: CodexToolArgs = CodexToolSchema.parse(args);
 
       let activeSessionId = sessionId;
       let enhancedPrompt = prompt;
@@ -67,6 +72,11 @@ export class CodexToolHandler {
 
       // Skip git repo check for v0.50.0+
       cmdArgs.push('--skip-git-repo-check');
+
+      // Inject additional CLI arguments if provided
+      if (additionalArgs && Array.isArray(additionalArgs)) {
+        cmdArgs.push(...additionalArgs);
+      }
 
       cmdArgs.push(enhancedPrompt);
 

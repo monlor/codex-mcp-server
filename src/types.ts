@@ -44,6 +44,7 @@ export const CodexToolSchema = z.object({
   resetSession: z.boolean().optional(),
   model: z.string().optional(),
   reasoningEffort: z.enum(['low', 'medium', 'high']).optional(),
+  additionalArgs: z.array(z.string()).optional(),
 });
 
 export const PingToolSchema = z.object({
